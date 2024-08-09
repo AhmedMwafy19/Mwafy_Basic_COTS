@@ -1,0 +1,8 @@
+#ifndef SSD_PRV_H
+#define SSD_PRV_H
+#define COMMON_CATHODE 1
+#define COMMON_ANODE 2
+#define ETA_KIT_COMMONANODE 3
+#define ETA_KIT_COMMONCATHODE 4
+
+#endif
