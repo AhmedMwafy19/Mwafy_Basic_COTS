@@ -116,3 +116,31 @@ void CLCD_voidSendNumber(sint32 Copy_s32Number){
 	 CLCD_voidSendData(Local_u8Array[Local_s8LoopCounter]+48);
 }
 }
+
+void CLCD_voidGoToXY(uint8 Copy_u8X,uint8 Copy_u8Y){
+	uint8 Local_u8DDRAMAddress;
+	Local_u8DDRAMAddress = Copy_u8Y * 0x40 + Copy_u8X;
+	SET_BIT(Local_u8DDRAMAddress,7);
+	CLCD_voidSendCommand(Local_u8DDRAMAddress);
+}
+
+
+uint8 CLCD_u8SendMadeCharacters(uint8 Copy_u8LocationNumber,char *Copy_pu8CharacterDesign,uint8 Copy_u8X,uint8 Copy_u8Y){
+	uint8 Local_u8LocationAddress=Copy_u8LocationNumber*8;
+	uint8 Local_u8ErrorState=OK;
+	if(Copy_pu8CharacterDesign!=NULL){
+	SET_BIT(Local_u8LocationAddress,6);
+	CLCD_voidSendCommand(Local_u8LocationAddress);
+
+	for(uint8 Local_u8LoopCounter=0;Local_u8LoopCounter<8;Local_u8LoopCounter++){
+		CLCD_voidSendData(Copy_pu8CharacterDesign[Local_u8LoopCounter]);
+	}
+
+	CLCD_voidGoToXY(Copy_u8X,Copy_u8Y);
+	CLCD_voidSendData(Copy_u8LocationNumber);
+	}
+	else Local_u8ErrorState=NULL_PTR_ERR;
+	return Local_u8ErrorState;
+
+
+}
