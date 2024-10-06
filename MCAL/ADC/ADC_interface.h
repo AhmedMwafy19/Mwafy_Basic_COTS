@@ -33,6 +33,8 @@
 void ADC_voidInit(void);
 
 uint16 ADC_u16GetChannelReading(uint8 Copy_u8Channel);
+uint8 ADC_u8StartConvertionSynch(uint8 Copy_u8Channel , uint16 * Copy_pu16ADCval);
+uint8 ADC_u8StartConvertionAsynch(uint8 Copy_u8Channel , uint16 * Copy_pu16ADCval , void (*Copy_voidFunc)(void));
 
 #endif
 

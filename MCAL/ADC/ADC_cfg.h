@@ -1,5 +1,10 @@
 #ifndef ADC_CFG_H
 #define ADC_CFG_H
+
+/*Configure ADC Mode  1- ADC_AUTOTRIGGER
+ * 					  2- ADC_SINGLE_CONV*/
+
+#define ADC_u8TRIGGER_MODE  ADC_SINGLE_CONV
 /*Configure ADC prescalar division factor    1-DIVISION_BY_2
  	 	 	 	 	 	 	 	 	 	 	 2-DIVISION_BY_4
  	 	 	 	 	 	 	 	 	   	   	 3-DIVISION_BY_8
