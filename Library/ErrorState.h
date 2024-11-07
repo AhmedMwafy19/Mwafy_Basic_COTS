@@ -7,4 +7,5 @@
 #define TIME_OUT_ERR 3
 #define ADC_BUSY_ERR 4
 #define UART_BUSY_ERR  5
+#define SPI_BUSY_ERR  6
 #endif
